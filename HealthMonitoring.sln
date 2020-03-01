@@ -1,0 +1,71 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthMonitoring", "HealthMonitoring\HealthMonitoring.csproj", "{72A5731D-F93B-464A-AD27-E3D6336F6E4A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Epam.HealthMonitoring.DAL", "Epam.HealthMonitoring.DAL\Epam.HealthMonitoring.DAL.csproj", "{05B2D517-5C84-48F1-A8BF-CDDA9A544DC9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Epam.HealthMonitoring.DAL.Interfaces", "Epam.HealthMonitoring.DAL.Interfaces\Epam.HealthMonitoring.DAL.Interfaces.csproj", "{242B0ED2-74F7-46C3-94B1-2BBCFAA4E7BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Epam.HealthMonitoring.BLL", "Epam.HealthMonitoring.BLL\Epam.HealthMonitoring.BLL.csproj", "{9D9F27B1-8C43-4A23-B213-687ECC6357AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Epam.HealthMonitoring.BLL.Interfaces", "Epam.HealthMonitoring.BLL.Interfaces\Epam.HealthMonitoring.BLL.Interfaces.csproj", "{FB104270-44AC-45BB-803C-17693EC2D990}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Epam.HealthMonitoring.Entities", "Epam.HealthMonitoring.Entities\Epam.HealthMonitoring.Entities.csproj", "{08161D7E-D21D-484C-A0D1-A0C3989928C0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BLL", "BLL", "{3C55E8C1-FBD4-42C3-BDE7-BBDAFA4D914E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DAL", "DAL", "{E779539F-F65B-44B8-96D8-1EBAF0C0819F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PL", "PL", "{08F00499-861C-43CC-968C-257003A0A2B3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{30B960CD-13EA-4686-8646-982A6A062001}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{72A5731D-F93B-464A-AD27-E3D6336F6E4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72A5731D-F93B-464A-AD27-E3D6336F6E4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72A5731D-F93B-464A-AD27-E3D6336F6E4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72A5731D-F93B-464A-AD27-E3D6336F6E4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05B2D517-5C84-48F1-A8BF-CDDA9A544DC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05B2D517-5C84-48F1-A8BF-CDDA9A544DC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05B2D517-5C84-48F1-A8BF-CDDA9A544DC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05B2D517-5C84-48F1-A8BF-CDDA9A544DC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{242B0ED2-74F7-46C3-94B1-2BBCFAA4E7BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{242B0ED2-74F7-46C3-94B1-2BBCFAA4E7BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{242B0ED2-74F7-46C3-94B1-2BBCFAA4E7BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{242B0ED2-74F7-46C3-94B1-2BBCFAA4E7BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D9F27B1-8C43-4A23-B213-687ECC6357AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D9F27B1-8C43-4A23-B213-687ECC6357AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D9F27B1-8C43-4A23-B213-687ECC6357AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D9F27B1-8C43-4A23-B213-687ECC6357AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB104270-44AC-45BB-803C-17693EC2D990}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB104270-44AC-45BB-803C-17693EC2D990}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB104270-44AC-45BB-803C-17693EC2D990}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB104270-44AC-45BB-803C-17693EC2D990}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08161D7E-D21D-484C-A0D1-A0C3989928C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08161D7E-D21D-484C-A0D1-A0C3989928C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08161D7E-D21D-484C-A0D1-A0C3989928C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08161D7E-D21D-484C-A0D1-A0C3989928C0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{72A5731D-F93B-464A-AD27-E3D6336F6E4A} = {08F00499-861C-43CC-968C-257003A0A2B3}
+		{05B2D517-5C84-48F1-A8BF-CDDA9A544DC9} = {E779539F-F65B-44B8-96D8-1EBAF0C0819F}
+		{242B0ED2-74F7-46C3-94B1-2BBCFAA4E7BD} = {E779539F-F65B-44B8-96D8-1EBAF0C0819F}
+		{9D9F27B1-8C43-4A23-B213-687ECC6357AB} = {3C55E8C1-FBD4-42C3-BDE7-BBDAFA4D914E}
+		{FB104270-44AC-45BB-803C-17693EC2D990} = {3C55E8C1-FBD4-42C3-BDE7-BBDAFA4D914E}
+		{08161D7E-D21D-484C-A0D1-A0C3989928C0} = {30B960CD-13EA-4686-8646-982A6A062001}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6B7B0F07-757D-4BDC-8C78-5BA89ABEDC6F}
+	EndGlobalSection
+EndGlobal
