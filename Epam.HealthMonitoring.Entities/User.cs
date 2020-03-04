@@ -14,6 +14,10 @@ namespace Epam.HealthMonitoring.Entities
 
         public string UserSurname { get; set; }
 
+        public string UserLogin { get; set; }
+
+        public string UserPassword { get; set; }
+
         public DateTime UserDateOfBirth { get; set; }
 
         public int Age => DateTime.Now.Year - UserDateOfBirth.Year;
