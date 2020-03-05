@@ -46,6 +46,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Epam.HealthMonitoring.DAL.Interfaces\Epam.HealthMonitoring.DAL.Interfaces.csproj">
+      <Project>{242B0ED2-74F7-46C3-94B1-2BBCFAA4E7BD}</Project>
+      <Name>Epam.HealthMonitoring.DAL.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Epam.HealthMonitoring.Entities\Epam.HealthMonitoring.Entities.csproj">
       <Project>{08161D7E-D21D-484C-A0D1-A0C3989928C0}</Project>
       <Name>Epam.HealthMonitoring.Entities</Name>

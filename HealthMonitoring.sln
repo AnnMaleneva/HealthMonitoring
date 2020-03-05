@@ -23,6 +23,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PL", "PL", "{08F00499-861C-
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{30B960CD-13EA-4686-8646-982A6A062001}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Epam.HealthMonitoring.Ioc", "Epam.HealthMonitoring.Ioc\Epam.HealthMonitoring.Ioc.csproj", "{33A3A66D-E116-418A-947B-DCF15D173375}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,10 @@ Global
 		{08161D7E-D21D-484C-A0D1-A0C3989928C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08161D7E-D21D-484C-A0D1-A0C3989928C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{08161D7E-D21D-484C-A0D1-A0C3989928C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33A3A66D-E116-418A-947B-DCF15D173375}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33A3A66D-E116-418A-947B-DCF15D173375}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33A3A66D-E116-418A-947B-DCF15D173375}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33A3A66D-E116-418A-947B-DCF15D173375}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -64,6 +70,7 @@ Global
 		{9D9F27B1-8C43-4A23-B213-687ECC6357AB} = {3C55E8C1-FBD4-42C3-BDE7-BBDAFA4D914E}
 		{FB104270-44AC-45BB-803C-17693EC2D990} = {3C55E8C1-FBD4-42C3-BDE7-BBDAFA4D914E}
 		{08161D7E-D21D-484C-A0D1-A0C3989928C0} = {30B960CD-13EA-4686-8646-982A6A062001}
+		{33A3A66D-E116-418A-947B-DCF15D173375} = {30B960CD-13EA-4686-8646-982A6A062001}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6B7B0F07-757D-4BDC-8C78-5BA89ABEDC6F}

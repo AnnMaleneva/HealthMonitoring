@@ -19,7 +19,7 @@ namespace Epam.HealthMonitoring.BLL
 
         public User AddUser(User user)
         {
-            throw new NotImplementedException();
+            return __userDao.AddUser(user);
         }
         public void AddBloodPressure(int topNumber, int lowerNumber, DateTime date)
         {

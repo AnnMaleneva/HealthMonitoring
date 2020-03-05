@@ -1,4 +1,5 @@
-﻿using Epam.HealthMonitoring.Entities;
+﻿using Epam.HealthMonitoring.DAL.Interfaces;
+using Epam.HealthMonitoring.Entities;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Epam.HealthMonitoring.DAL
 {
-    class AdminDao
+    public class AdminDao : IAdminDao
     {
         private string _connectionString = "";
 
