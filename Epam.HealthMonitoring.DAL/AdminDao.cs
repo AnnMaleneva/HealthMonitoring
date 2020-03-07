@@ -11,7 +11,7 @@ namespace Epam.HealthMonitoring.DAL
 {
     public class AdminDao : IAdminDao
     {
-        private string _connectionString = "";
+        private string _connectionString = @"Data Source=EVILLITTLEPONY\SQLEXPRESS;Initial Catalog=HealthMonitoring;Integrated Security=True";
 
         public Admin AddAdmin(Admin admin)
         {

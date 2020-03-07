@@ -1,27 +1,47 @@
-﻿@{
-    Layout = null;
-}
-@using Epam.HealthMonitoring.Ioc
+﻿@using Epam.HealthMonitoring.Ioc;
+@using Epam.HealthMonitoring.Entities;
 
-@if (!IsPost)
+
+@if (IsPost)
 {
-    HealthMonitoringIoc.UserLogic
+    var name = Request["UserName"];
+    var surname = Request["UserSurname"];
+    var dateofbirth = Convert.ToDateTime(Request["DateOfBirth"]);
+    var login = Request["UserLogin"];
+    var password = Request["UserPassword"];
+
+    var user = new User
+    {
+        UserName = name,
+        UserSurname = surname,
+        UserDateOfBirth = dateofbirth,
+        UserLogin = login,
+        UserPassword = password
+    };
+    HealthMonitoringIoc.UserLogic.AddUser(user);
+    Response.Redirect("~/Pages/User");
 }
 else
 {
+    <form method="post" action="~/Pages/User" class="form-group">
+        <div class="form-group">
+            <label for="inputName">Имя</label>
+            <input name="UserName" class="form-control" id="inputName" />
+        </div>
+        <div class="form-group">
+            <label for="inputSurname">Фамилия</label>
+            <input name="UserSurname" class="form-control" id="inputSurname" />
+        </div>
 
+            <label for="inputDateofbirth">Дата рождения</label>
+            <input name="UserDateOfBirth" id="inputDateofbirth" />
+
+            <label for="inputLogin">Логин</label>
+            <input name="UserLogin" id="inputLogin" />
+
+            <label for="inputPassword">Пароль</label>
+            <input name="UserPassword" id="inputPassword" />
+
+            <button type="submit" class="btn btn-outline-success">Зарегистрироваться</button>
+    </form>
 }
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title></title>
-</head>
-<body>
-    <div>
-    
-    </div>
-</body>
-</html>

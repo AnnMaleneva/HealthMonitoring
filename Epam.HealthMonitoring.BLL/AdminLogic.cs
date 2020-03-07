@@ -34,7 +34,7 @@ namespace Epam.HealthMonitoring.BLL
 
         public IEnumerable<Admin> GetAllAdmins()
         {
-            throw new NotImplementedException();
+            return _adminDao.GetAllAdmins();
         }
 
         public IEnumerable<User> GetAllUsers()

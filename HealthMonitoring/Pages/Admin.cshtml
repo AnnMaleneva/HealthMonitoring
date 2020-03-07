@@ -1,0 +1,49 @@
+﻿@using Epam.HealthMonitoring.Ioc;
+@using Epam.HealthMonitoring.Entities;
+@{
+    Layout = null;
+}
+
+
+
+
+
+@if (!IsPost) //исправить на "если клик"
+{
+    var adminLogic = HealthMonitoringIoc.AdminLogic;
+
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Имя</th>
+            <th>Фамилия</th>
+        </tr>
+        @foreach(var item in adminLogic.GetAllAdmins())
+        {
+            <tr>
+                <th>@item.AdminID</th>
+                <th>@item.AdminName</th>
+                <th>@item.AdminSurname</th>
+            </tr>
+        }
+    </table>
+}
+else
+{
+
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <div>
+
+    </div>
+</body>
+</html>
