@@ -1,0 +1,13 @@
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE GetAllAdmins 
+
+AS
+BEGIN
+	SELECT [UserName], [UserSurname] FROM Users WHERE Role = 'Admin'
+END
+GO

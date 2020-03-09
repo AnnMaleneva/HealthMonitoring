@@ -11,17 +11,22 @@ namespace Epam.HealthMonitoring.BLL
 {
     public class UserLogic : IUserLogic
     {
-        private IUserDao __userDao;
+        private IUserDao _userDao;
         public UserLogic(IUserDao userDao)
         {
-            __userDao = userDao;
+            _userDao = userDao;
         }
 
         public User AddUser(User user)
         {
-            return __userDao.AddUser(user);
+            return _userDao.AddUser(user);
         }
-        public void AddBloodPressure(int topNumber, int lowerNumber, DateTime date)
+
+        public User GetUser(string login)
+        {
+            return _userDao.GetUser(login);
+        }
+        public void AddBloodPressure(int topNumber, int lowerNumber, DateTime date, int userId)
         {
             throw new NotImplementedException();
         }
@@ -36,7 +41,7 @@ namespace Epam.HealthMonitoring.BLL
             throw new NotImplementedException();
         }
 
-        public void AddPulse(int pulse, DateTime date)
+        public void AddPulse(int pulse, DateTime date, int userId)
         {
             throw new NotImplementedException();
         }

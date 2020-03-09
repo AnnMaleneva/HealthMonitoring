@@ -6,11 +6,15 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using log4net;
+using log4net.Config;
+using Epam.HealthMonitoring.Logger;
 
 namespace Epam.HealthMonitoring.DAL
 {
     public class UserDao : IUserDao
     {
+        private static readonly ILog log = LogManager.GetLogger(typeof(UserDao));
         private string _connectionString = @"Data Source=EVILLITTLEPONY\SQLEXPRESS;Initial Catalog=HealthMonitoring;Integrated Security=True";
         public User AddUser(User user)
         {
@@ -25,56 +29,116 @@ namespace Epam.HealthMonitoring.DAL
                     command.Parameters.AddWithValue("@DateOfBirth", user.UserDateOfBirth);
                     command.Parameters.AddWithValue("@Login", user.UserLogin);
                     command.Parameters.AddWithValue("@Password", user.UserPassword);
+                    command.Parameters.AddWithValue("@Role", "User");
 
                     try
                     {
                         connection.Open();
                         command.ExecuteNonQuery();
-                        
+                                               
                     }
                     catch (Exception ex)
                     {
-                        throw ex;
+                         log.Error(ex.Message);
+                         throw ex;
                     }
+                    log.Info("Success");
                }
-               return user;
-                                                   
+            return user;
+                                                             
         }
 
-        //public User GetByIdUserLoginAndPassword(int id) юзер получает собственные логин и пароль
-        //{
-
-        //}
-
-        
-        public void AddPulse(int pulse, DateTime date)
+        public User GetUser(string login)
         {
-            //using (SqlConnection connection = new SqlConnection(_connectionString))
-            //{
+            User user = null;
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                var command = connection.CreateCommand();
+                command.CommandType = System.Data.CommandType.Text;
+                command.CommandText = "dbo.GetUser";
 
-            //    var command = connection.CreateCommand();
-            //    command.CommandType = System.Data.CommandType.StoredProcedure;
-            //    command.CommandText = "dbo.AddUser";
+                try
+                {
+                    connection.Open();
 
-            //    var nameParameter = new SqlParameter()
-            //    {
-            //        DbType = System.Data.DbType.String,
-            //        ParameterName = "@UserName",
-            //        Value = user.UserName,
-            //        Direction = System.Data.ParameterDirection.Input,
-            //    };
+                    var reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        user = new User
+                        {
+                            UserID = (int)reader["IdUser"],
+                            UserName = reader["UserName"] as string,
+                            UserSurname = reader["UserSurname"] as string,
+                            Role = reader["Role"] as string
 
-            //    command.Parameters.Add(nameParameter);
-            //    connection.Open();
-            //    command.ExecuteNonQuery();
-            //}
-
-            
+                        };
+                    }
+                }
+                catch (Exception ex)
+                {
+                    log.Error(ex.Message);
+                    throw ex;
+                }
+                log.Info("Success");
+            }
+            return user;
         }
 
-        public void AddBloodPressure (int topNumber, int lowerNumber, DateTime date)
+        public void AddPulse(int pulse, DateTime Date, int userId)
         {
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                var command = connection.CreateCommand();
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+                command.CommandText = "dbo.AddPulse";
 
+                command.Parameters.AddWithValue("@UserId", userId);
+                command.Parameters.AddWithValue("@Pulse", pulse);
+                command.Parameters.AddWithValue("@Date", Date);
+
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+
+                }
+                catch (Exception ex)
+                {
+                    log.Error(ex.Message);
+                    throw ex;
+                }
+                log.Info("Success");
+            }
+
+
+        }
+
+        public void AddBloodPressure (int TopNumber, int LowerNumber, DateTime Date, int UserId)
+        {
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                var command = connection.CreateCommand();
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+                command.CommandText = "dbo.AddPressure";
+
+                command.Parameters.AddWithValue("@UserId", UserId);
+                command.Parameters.AddWithValue("@TopNumber", TopNumber);
+                command.Parameters.AddWithValue("@LowerNumber", LowerNumber);
+                command.Parameters.AddWithValue("@Date", Date);
+
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+
+                }
+                catch (Exception ex)
+                {
+                    log.Error(ex.Message);
+                    throw ex;
+                }
+                log.Info("Success");
+            }
         }
 
         public void AddMedicineToList(string nameMedicine, DateTime medicationStartDate, DateTime medicationFinishDate, string methodForTheUse)
@@ -92,7 +156,7 @@ namespace Epam.HealthMonitoring.DAL
 
         }
 
-        public void DeleteComplaintFromList (int id) //пока не знаю как правильно удалить по ID или по самой записи 
+        public void DeleteComplaintFromList (int id) 
         {
 
         }

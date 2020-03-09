@@ -1,0 +1,16 @@
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE AddPulse
+@UserId INT,
+@Pulse INT,
+@Date DATE
+
+AS
+BEGIN
+	INSERT INTO Pulse (User_Id, Pulse, Date) VALUES (@UserId, @Pulse, @Date)
+END
+GO

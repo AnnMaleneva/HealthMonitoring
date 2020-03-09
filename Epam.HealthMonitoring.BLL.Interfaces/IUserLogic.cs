@@ -11,9 +11,11 @@ namespace Epam.HealthMonitoring.BLL.Interfaces
     {
         User AddUser(User user);
 
-        void AddPulse(int pulse, DateTime date);
+        User GetUser(string login);
 
-        void AddBloodPressure(int topNumber, int lowerNumber, DateTime date);
+        void AddPulse(int pulse, DateTime date, int userId);
+
+        void AddBloodPressure(int topNumber, int lowerNumber, DateTime date, int userId);
 
         void AddMedicineToList(string nameMedicine, DateTime medicationStartDate, DateTime medicationFinishDate, string methodForTheUse);
 

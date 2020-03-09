@@ -1,12 +1,14 @@
 ﻿@using Epam.HealthMonitoring.Ioc;
 @using Epam.HealthMonitoring.Entities;
-
+@{
+    Layout = "~/Layout/_MainLayout.cshtml";
+}
 
 @if (IsPost)
 {
     var name = Request["UserName"];
     var surname = Request["UserSurname"];
-    var dateofbirth = Convert.ToDateTime(Request["DateOfBirth"]);
+    DateTime dateofbirth = DateTime.Parse(Request["UserDateOfBirth"]);
     var login = Request["UserLogin"];
     var password = Request["UserPassword"];
 
@@ -19,29 +21,97 @@
         UserPassword = password
     };
     HealthMonitoringIoc.UserLogic.AddUser(user);
-    Response.Redirect("~/Pages/User");
+    FormsAuthentication.SetAuthCookie(name, createPersistentCookie: true);
+    Response.Redirect("~/Pages/MainUser");
 }
 else
-{
-    <form method="post" action="~/Pages/User" class="form-group">
-        <div class="form-group">
-            <label for="inputName">Имя</label>
-            <input name="UserName" class="form-control" id="inputName" />
+{   <style>
+    input [data-rules] .valid{
+        border: 1px solid green;
+    }
+    input [data-rule]{
+        border: 1px solid red;
+    }
+    </style>
+    //конфликт стилей не дает визуализировать валидацию ввода
+    <div class="container-md"> 
+        <h2>Регистрация</h2>
+         <form method="post" action="~/Pages/User">
+                <div class="form-group">
+                    <label class="control-label col-xs-3" for="inputName">Имя</label>
+                    <div class="col-xs-9">
+                        <input data-rule="words" name="UserName" class="form-control" id="inputName" placeholder="Введите имя" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputSurname" class="control-label col-xs-3">Фамилия</label>
+                    <div class="col-xs-9">
+                        <input data-rule="words" name="UserSurname" class="form-control" id="inputSurname" placeholder="Введите фамилию" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputDateofbirth" class="control-label col-xs-3">Дата рождения</label>
+                    <div class="col-xs-9">
+                        <input data-rule="numbers" name="UserDateOfBirth" id="inputDateofbirth" class="form-control" placeholder="Введите дату рождения" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputLogin" class="control-label col-xs-3">Логин</label>
+                    <div class="col-xs-9">
+                        <input data-rule="words" name="UserLogin" id="inputLogin" class="form-control" placeholder="Введите логин" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputPassword" class="control-label col-xs-3">Пароль</label>
+                    <div class="col-xs-9">
+                        <input data-rule="symbols" name="UserPassword" id="inputPassword" class="form-control" placeholder="Введите пароль(6 символов)" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-offset-3 col-xs-9">
+                        <button type="submit" class="btn btn-primary">Регистрация</button>
+                        <input type="reset" class="btn btn-default" value="Очистить форму">
+                    </div>
+                </div>
+            </form>
         </div>
-        <div class="form-group">
-            <label for="inputSurname">Фамилия</label>
-            <input name="UserSurname" class="form-control" id="inputSurname" />
-        </div>
-
-            <label for="inputDateofbirth">Дата рождения</label>
-            <input name="UserDateOfBirth" id="inputDateofbirth" />
-
-            <label for="inputLogin">Логин</label>
-            <input name="UserLogin" id="inputLogin" />
-
-            <label for="inputPassword">Пароль</label>
-            <input name="UserPassword" id="inputPassword" />
-
-            <button type="submit" class="btn btn-outline-success">Зарегистрироваться</button>
-    </form>
 }
+        <script>
+            let inputs = document.querySelectorAll('input[data-rule]');
+
+            for (let input of inputs) {
+                input.addEventListener('blur', function () {
+                    let rule = this.dataset.rule;
+                    let value = this.value;
+                    let check;
+
+                    switch (rule) {
+                        case 'words':
+                            check = /^[a-zа-яё]+$/.test(value);
+                            break;
+                        case 'numbers':
+                            check = /^\d+$/.test(value);
+                            break;
+                        case 'symbols':
+                            check = /[A - Za - z0 - 9]{ 6 } $/.test(value);
+                            break;
+                    }
+
+                    this.classList.remove('invalid'); //очищает классы
+                    this.classList.remove('valid');
+                    if (check) {
+                        this.classList.add('valid'); //если прошло проверку добавляет класс, чтобы окрасить поле в зеленый
+                    } else {
+                        this.classList.add('invalid');
+                    }
+
+                }
+                )
+            }
+        </script>
+
+        }

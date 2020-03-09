@@ -96,6 +96,8 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\StyleIndex.css" />
+    <Content Include="Content\StyleSheetForMailLayout.css" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -120,6 +122,9 @@
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="Pages\Admin.cshtml" />
+    <Content Include="Pages\MainUser.cshtml" />
+    <Content Include="Pages\Login.cshtml" />
+    <Content Include="Pages\SignOut.cshtml" />
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
     <Content Include="Scripts\jquery-3.0.0.js" />
     <Content Include="Scripts\jquery-3.0.0.min.js" />
@@ -197,8 +202,11 @@
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
     <Content Include="Web.config" />
+    <Content Include="Layout\_MainLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\AuthModel.cs" />
+    <Compile Include="Models\AppRoleProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -225,7 +233,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\" />
+    <Folder Include="img\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
@@ -237,6 +245,10 @@
     <ProjectReference Include="..\Epam.HealthMonitoring.BLL.Interfaces\Epam.HealthMonitoring.BLL.Interfaces.csproj">
       <Project>{fb104270-44ac-45bb-803c-17693ec2d990}</Project>
       <Name>Epam.HealthMonitoring.BLL.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Epam.HealthMonitoring.BLL\Epam.HealthMonitoring.BLL.csproj">
+      <Project>{9D9F27B1-8C43-4A23-B213-687ECC6357AB}</Project>
+      <Name>Epam.HealthMonitoring.BLL</Name>
     </ProjectReference>
     <ProjectReference Include="..\Epam.HealthMonitoring.Entities\Epam.HealthMonitoring.Entities.csproj">
       <Project>{08161d7e-d21d-484c-a0d1-a0c3989928c0}</Project>

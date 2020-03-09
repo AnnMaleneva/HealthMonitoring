@@ -16,6 +16,10 @@ namespace Epam.HealthMonitoring.Entities
 
         public string AdminLogin { get; set; }
 
+        public DateTime AdminDateOfBirth { get; set; }
+
         public string AdminPassword { get; set; }
+
+        public string Role { get; set; }
     }
 }

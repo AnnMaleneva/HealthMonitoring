@@ -10,10 +10,11 @@ namespace Epam.HealthMonitoring.DAL.Interfaces
     public interface IUserDao
     {
         User AddUser(User user);
+        User GetUser(string login);
 
-        void AddPulse(int pulse, DateTime date);
+        void AddPulse(int pulse, DateTime date, int userId);
 
-        void AddBloodPressure(int topNumber, int lowerNumber, DateTime date);
+        void AddBloodPressure(int topNumber, int lowerNumber, DateTime date, int userId);
 
         void AddMedicineToList(string nameMedicine, DateTime medicationStartDate, DateTime medicationFinishDate, string methodForTheUse);
 

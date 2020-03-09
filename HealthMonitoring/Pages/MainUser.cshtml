@@ -1,0 +1,70 @@
+﻿@{
+    Layout = "~/Layout/_MainLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+
+    <div class="alert">Здравствуйте @User.Identity.Name</div>
+
+    @if (User.IsInRole("Admin"))
+    {
+        <div class="alert-danger">Вы администратор</div>
+        //меню администратора
+        <nav class="sidebar-sticky navbar-light navbar-expand-md">
+            <a href="#" class="logo navbar-brand">Навигация</a>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto flex-column">
+                    <li class="nav-item active">
+                        <a href="" class="nav-link">Добавить администратора</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="" class="nav-link">Получить список всех администраторов</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="" class="nav-link">Получить список всех пользователей</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="" class="nav-link">Удалить пользователя</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    }
+    else
+    {
+        <nav class="sidebar-sticky navbar-light navbar-expand-md">
+            <a href="#" class="logo navbar-brand">Навигация</a>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto flex-column">
+                    <li class="nav-item active">
+                        <a href="" class="nav-link">Добавить показатели пульса</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="" class="nav-link">Добавить показатели давления</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    }
+
+
+
+
+    <button id='btn_signout' class="btn btn-primary">Выход</button>
+
+    <script>
+        $('#btn_signout').click(function () {
+            location.href = '/Pages/SignOut';
+        });
+    </script>
+</body>
+</html>
